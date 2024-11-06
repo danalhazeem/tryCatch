@@ -20,6 +20,7 @@ public class Main {
 //                String password = scanner.nextLine();
 //
 //                if (userName.equals(validUsername) &&password.equals(validPassword)){
+//                     System.out.println("Login successful!");
 //                     isAoth = true;
 //                }
 //                else {
@@ -39,11 +40,15 @@ public class Main {
                 String password = scanner.nextLine();
 
                 if (userName.equals(validUsername) &&password.equals(validPassword)){
+                    System.out.println("Login successful!");
                     break;
 
                 }
                 else {
                     System.out.println("Incorrect username or password. Please try again.\n");
+                }
+                if (attempt == maxAttempts && !isAoth) {
+                    throw new Exception("Maximum attempts exceeded.");
                 }
 
             } catch (Exception e) {
